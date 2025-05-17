@@ -7,22 +7,16 @@ import java.nio.file.Path
 
 @Serializable
 data class PluginConfig (
-    val blacklistedServers: Array<String> = arrayOf("jail_server", "server_i_do_not_like"),
-    val debug: Boolean = false
-) {
-    override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        if (javaClass != other?.javaClass) return false
+    val blacklistedServers: List<String> = listOf("jail_server", "server_i_do_not_like"),
+    val formatter: ChatFormatter,
+    val debug: Boolean = false,
+)
 
-        other as PluginConfig
-
-        return blacklistedServers.contentEquals(other.blacklistedServers)
-    }
-
-    override fun hashCode(): Int {
-        return blacklistedServers.contentHashCode()
-    }
-}
+@Serializable
+data class ChatFormatter (
+    val enabled: Boolean = true,
+    val servers: List<String> = listOf("hub", "chat_server"),
+)
 
 object Config {
     lateinit var hcConfig: PluginConfig

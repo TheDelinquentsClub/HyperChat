@@ -2,6 +2,7 @@ package com.king_ultron99.hyperChat.listeners
 
 import com.google.inject.Inject
 import com.king_ultron99.hyperChat.Config.hcConfig
+import com.king_ultron99.hyperChat.handlers.ChatHandler
 import com.velocitypowered.api.event.player.PlayerChatEvent
 import com.velocitypowered.api.event.Subscribe
 import com.velocitypowered.api.proxy.Player
@@ -23,7 +24,7 @@ class ChatListener @Inject constructor(val logger: Logger){
         if ((currentServer != null) && (currentServer in hcConfig.blacklistedServers)) {
             event.result = PlayerChatEvent.ChatResult.allowed()
         } else {
-            // send to connector
+            ChatHandler(event)
         }
 
     }
