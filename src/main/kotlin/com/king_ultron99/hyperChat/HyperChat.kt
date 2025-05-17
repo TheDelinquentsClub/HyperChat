@@ -20,7 +20,7 @@ class HyperChat @Inject constructor(val logger: Logger, val server: ProxyServer,
     }
     @Subscribe
     fun onInitialize(event: ProxyInitializeEvent) {
-        server.eventManager.register(this, ChatListener())
+        server.eventManager.register(this, ChatListener(logger))
         logger.info("HyperChat Listeners initialised")
     }
 
