@@ -4,6 +4,7 @@ import org.jetbrains.gradle.ext.taskTriggers
 plugins {
     kotlin("jvm") version "2.0.20-Beta1"
     kotlin("kapt") version "2.0.20-Beta1"
+    kotlin("plugin.serialization") version "2.0.20-Beta1"
     id("com.github.johnrengelman.shadow") version "8.1.1"
     id("eclipse")
     id("org.jetbrains.gradle.plugin.idea-ext") version "1.1.8"
@@ -27,6 +28,8 @@ dependencies {
     compileOnly("com.velocitypowered:velocity-api:3.4.0-SNAPSHOT")
     kapt("com.velocitypowered:velocity-api:3.4.0-SNAPSHOT")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:2.0.20-Beta1")
+    implementation("com.charleskorn.kaml:kaml:0.78.0")
 }
 
 tasks {
