@@ -22,6 +22,9 @@ repositories {
     maven("https://oss.sonatype.org/content/groups/public/") {
         name = "sonatype"
     }
+    maven("https://repo.william278.net/releases/") {
+        name = "william278"
+    }
 }
 
 dependencies {
@@ -30,6 +33,7 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:2.0.20-Beta1")
     implementation("com.charleskorn.kaml:kaml:0.78.0")
+    implementation("net.william278:papiproxybridge:1.8.1")
 }
 
 tasks {
